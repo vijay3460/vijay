@@ -1,0 +1,38 @@
+module "aws_es" {
+
+  source = "./terraform-es"
+
+  domain_name           = "elasticsearch"
+  elasticsearch_version = "7.4"
+
+  cluster_config_dedicated_master_enabled = true
+  cluster_config_instance_count           = "4"
+  cluster_config_instance_type            = "r5.large.elasticsearch"
+  cluster_config_zone_awareness_enabled   = "true"
+  cluster_config_availability_zone_count  = "3"
+
+  ebs_options_volume_size = "30"
+
+  encrypt_at_rest_enabled    = true
+  encrypt_at_rest_kms_key_id = "alias/aws/es"
+
+  log_publishing_options_enabled  = true
+  log_publishing_options_log_type = "INDEX_SLOW_LOGS"
+
+  advanced_options = {
+    "rest.action.multi.allow_explicit_index" = "true"
+  }
+  
+vpc_options = {
+    subnet_ids = ["${var.subnetid_1}", "${var.subnetid_2}"]
+  }
+
+  
+  node_to_node_encryption_enabled                = "true"
+  snapshot_options_automated_snapshot_start_hour = "23"
+
+  tags = {
+    Owner = "Mohan"
+    env   = "dev"
+ }
+}
