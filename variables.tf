@@ -1,9 +1,9 @@
 variable "subnetid_1" {
-  description = "Name of the domain"
+  description = "enter subnet1"
   type        = string
 }
 
 variable "subnetid_2" {
-  description = "Name of the domain"
+  description = "enter subnet2"
   type        = string
 }
