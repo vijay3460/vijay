@@ -23,7 +23,7 @@ variable "instance_count" {
 }
 
 variable "master_instance_type" {
-  description = "enter data node size"
+  description = "enter master node size"
   type        = string
 }
 
