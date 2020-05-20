@@ -22,10 +22,16 @@ variable "instance_count" {
   type        = string
 }
 
+variable "master_instance_type" {
+  description = "enter data node size"
+  type        = string
+}
+
 variable "instance_type" {
   description = "enter data node size"
   type        = string
 }
+
 
 variable "volume_size" {
   description = "enter volume size"
