@@ -9,8 +9,8 @@ variable "domain_name" {
 variable "elasticsearch_version" {
   description = "The version of Elasticsearch to deploy."
   type        = string
-  default     = "7.1"
-}
+  default     = "7.4"
+
 
 variable "access_policies" {
   description = "IAM policy document specifying the access policies for the domain"
